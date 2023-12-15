@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        .container{
+            height: 500px;
+            width: 770px;
+            margin-left: 350px;
+            margin-top: 60px;
+            background-color: aquamarine;
+            border-radius: 15px;
+        }
+
+        .main{
+            padding-top: 30px;
+            text-align: center;
+        }
+        h1{
+            font-size: medium;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            align-content: center;
+            padding-top: 10px;
+        }
+
+        h2{
+            font-size: medium;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            align-content: center;
+            align-items: center;
+            padding-top: 10px;
+        }
+
+        input{
+            height: 30px;
+            width: 400px;
+            align-self: center;
+            border-radius: 6px;
+            padding-top: 10px;
+        }
+
+        button{
+            width: 70px;
+            height: 50px;
+            border-radius: 6px;
+            color: chocolate;
+            margin-top: 20px;
+        }
+    </style>
+
+    <!-- Program to detect if a word is a palindrome -->
+    <div class="container">
+        <div class="main">
+            <h1 id="name_of_player">Welcome to Palindrome Checker</h1><br>
+            <h1>Enter your name:</h1><input type="text" id="change">
+            <button onclick="changeName()">Enter</button><br>
+            <h1 id="nameDisplay"></h1>
+            <h1>Enter the word you want to check: </h1><input type="text"  id="string1"> <br>
+            <button onclick="detect()">CHECK</button>
+            <h2 id="correct"></h2>
+            <h2 id="notCorrect"></h2>
+        </div>
+    </div>
+    
+    
+    
+
+<script>
+
+function detect() {
+    var string = document.getElementById("string1").value;
+    const palindrome = document.getElementById('correct');
+    const not_a_palindrome = document.getElementById('notCorrect');
+
+    let num_of_char = string.length;
+    let isPalindrome = true;
+
+    for (let i = 0; i < num_of_char / 2; i++) {
+        if (string[i] !== string[num_of_char - 1 - i]) {
+            isPalindrome = false;
+            break;
+        }
+    }
+
+    if (isPalindrome) {
+        palindrome.innerHTML = "It is a palindrome";
+        not_a_palindrome.innerHTML = "";
+    } else {
+        not_a_palindrome.innerHTML = "It is not a palindrome";
+        palindrome.innerHTML = "";
+    }
+}
+
+
+    
+
+    function changeName(){
+        document.getElementById("nameDisplay").innerText = "Welcome, " + document.getElementById("change").value;
+    }
+
+
+    
+    
+
+</script>
+
+
+
+</body>
+</html>
